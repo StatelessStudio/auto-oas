@@ -1,1 +1,1 @@
-# {{project-name}} - Changelog
+# auto-oas - Changelog

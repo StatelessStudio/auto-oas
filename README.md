@@ -1,4 +1,4 @@
-# {{project-name}} - Readme
+# auto-oas - Readme
 
 ## Contributing & Development
 

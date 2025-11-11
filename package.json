@@ -1,7 +1,7 @@
 {
-	"name": "{{project-name}}",
+	"name": "auto-oas",
 	"version": "1.0.0",
-	"description": "{{project-name}}",
+	"description": "auto-oas",
 	"private": "true",
 	"typescript-template": {
 		"base": "1.0.1",
@@ -41,13 +41,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/{{project-org}}/{{project-name}}.git"
+		"url": "git+https://github.com/auto-oas/auto-oas.git"
 	},
-	"author": "{{project-org}}",
+	"author": "auto-oas",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/{{project-org}}/{{project-name}}/issues"
+		"url": "https://github.com/auto-oas/auto-oas/issues"
 	},
-	"homepage": "https://github.com/{{project-org}}/{{project-name}}#readme",
+	"homepage": "https://github.com/auto-oas/auto-oas#readme",
 	"keywords": []
 }
