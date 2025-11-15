@@ -64,6 +64,10 @@ const param = buildParameter('id', idValSan, 'path');
 - buildParameter
   - Builds a `ParameterObject` with `name`, `in`, `schema` and computes `required` from the `location` and `valSan.options?.isOptional`.
 
+  - Copies `valsan.format` (when present) into the parameter's `schema.format`, so
+    formats such as `date-time` or `email` are preserved in generated
+    `ParameterObject`s.
+
 ## Examples in tests
 
 See `test/spec/auto-oas` for concrete usage examples that run inside the test-suite. The tests demonstrate behavior with real `valsan` validators and composed validators.

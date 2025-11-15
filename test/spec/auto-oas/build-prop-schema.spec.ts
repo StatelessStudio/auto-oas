@@ -9,6 +9,17 @@ import {
 import { buildPropSchema } from '../../../src';
 
 describe('buildPropSchema', () => {
+	it('propagates valsan.example to schema.example', () => {
+		const valSan = {
+			type: 'string',
+			rules: () => ({}),
+			example: 'foo-example',
+		} as unknown as RunsLikeAValSan;
+
+		const schema: SchemaObject = buildPropSchema(valSan);
+		expect(schema.example).toBe('foo-example');
+	});
+
 	it('maps validator type to schema type', () => {
 		const valSan = new IntegerValidator();
 
@@ -52,6 +63,27 @@ describe('buildPropSchema', () => {
 
 		const s = buildPropSchema(v);
 		expect(s.description).toBeUndefined();
+	});
+
+	it('copies valsan.format into schema.format when present', () => {
+		const v = {
+			type: 'string',
+			rules: () => ({}),
+			format: 'email',
+		} as unknown as RunsLikeAValSan;
+
+		const s = buildPropSchema(v);
+		expect(s.format).toBe('email');
+	});
+
+	it('does not set format if valsan.format is missing', () => {
+		const v = {
+			type: 'string',
+			rules: () => ({}),
+		} as unknown as RunsLikeAValSan;
+
+		const s = buildPropSchema(v);
+		expect(s.format).toBeUndefined();
 	});
 
 	it('falls back to string when type is missing', () => {
