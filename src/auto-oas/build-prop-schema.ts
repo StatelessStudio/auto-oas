@@ -3,9 +3,13 @@ import { SchemaObject } from '../oas/v3.1';
 
 export function buildPropSchema(valsan: RunsLikeAValSan): SchemaObject {
 	const type: string = valsan.type || 'string';
-	const prop: SchemaObject = { type } as SchemaObject;
+	const prop: SchemaObject = { type };
 	const rules = valsan.rules();
 	const userHints: string[] = [];
+
+	if (valsan.format) {
+		prop.format = valsan.format;
+	}
 
 	for (const ruleKey in rules) {
 		const rule = rules[ruleKey];

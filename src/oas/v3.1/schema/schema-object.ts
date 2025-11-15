@@ -39,6 +39,7 @@ export interface SchemaObject {
 	default?: unknown;
 	required?: string[];
 	type?: string | string[];
+	format?: string;
 	examples?: unknown[];
 	oneOf?: (SchemaObject | ReferenceObject)[];
 	anyOf?: (SchemaObject | ReferenceObject)[];

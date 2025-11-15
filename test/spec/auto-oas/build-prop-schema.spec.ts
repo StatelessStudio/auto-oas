@@ -54,6 +54,27 @@ describe('buildPropSchema', () => {
 		expect(s.description).toBeUndefined();
 	});
 
+	it('copies valsan.format into schema.format when present', () => {
+		const v = {
+			type: 'string',
+			rules: () => ({}),
+			format: 'email',
+		} as unknown as RunsLikeAValSan;
+
+		const s = buildPropSchema(v);
+		expect(s.format).toBe('email');
+	});
+
+	it('does not set format if valsan.format is missing', () => {
+		const v = {
+			type: 'string',
+			rules: () => ({}),
+		} as unknown as RunsLikeAValSan;
+
+		const s = buildPropSchema(v);
+		expect(s.format).toBeUndefined();
+	});
+
 	it('falls back to string when type is missing', () => {
 		const noType = {
 			rules: () => ({}),

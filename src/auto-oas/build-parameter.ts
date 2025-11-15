@@ -1,5 +1,5 @@
 import { RunsLikeAValSan } from 'valsan';
-import { ParameterObject } from '../oas/v3.1';
+import { ParameterObject, SchemaObject } from '../oas/v3.1';
 import { buildPropSchema } from './build-prop-schema';
 
 export function buildParameter(
@@ -16,6 +16,11 @@ export function buildParameter(
 		required,
 		schema,
 	} as ParameterObject;
+
+	// `format` hint (e.g. 'date-time' or 'email')
+	if (valSan.format) {
+		(param.schema as SchemaObject).format = valSan.format;
+	}
 
 	return param;
 }
