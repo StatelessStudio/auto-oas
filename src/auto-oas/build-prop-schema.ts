@@ -11,6 +11,11 @@ export function buildPropSchema(valsan: RunsLikeAValSan): SchemaObject {
 		prop.format = valsan.format;
 	}
 
+	// Propagate example if present
+	if (valsan.example) {
+		prop.example = valsan.example;
+	}
+
 	for (const ruleKey in rules) {
 		const rule = rules[ruleKey];
 

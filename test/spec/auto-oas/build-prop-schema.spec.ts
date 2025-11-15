@@ -9,6 +9,17 @@ import {
 import { buildPropSchema } from '../../../src';
 
 describe('buildPropSchema', () => {
+	it('propagates valsan.example to schema.example', () => {
+		const valSan = {
+			type: 'string',
+			rules: () => ({}),
+			example: 'foo-example',
+		} as unknown as RunsLikeAValSan;
+
+		const schema: SchemaObject = buildPropSchema(valSan);
+		expect(schema.example).toBe('foo-example');
+	});
+
 	it('maps validator type to schema type', () => {
 		const valSan = new IntegerValidator();
 

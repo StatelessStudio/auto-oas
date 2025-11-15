@@ -4,6 +4,17 @@ import { RunsLikeAValSan } from 'valsan';
 import { buildParameter } from '../../../src/auto-oas';
 
 describe('buildParameter', () => {
+	it('propagates valsan.example to parameter.example', () => {
+		const valSan = {
+			type: 'string',
+			rules: () => ({}),
+			example: 'bar-example',
+		} as unknown as RunsLikeAValSan;
+
+		const param: ParameterObject = buildParameter('foo', valSan, 'query');
+		expect(param.example).toBe('bar-example');
+	});
+
 	it('sets required correctly for optional query param', () => {
 		const optionalVal = {
 			type: 'string',

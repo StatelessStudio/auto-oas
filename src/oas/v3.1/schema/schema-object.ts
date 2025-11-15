@@ -40,6 +40,7 @@ export interface SchemaObject {
 	required?: string[];
 	type?: string | string[];
 	format?: string;
+	example?: unknown;
 	examples?: unknown[];
 	oneOf?: (SchemaObject | ReferenceObject)[];
 	anyOf?: (SchemaObject | ReferenceObject)[];

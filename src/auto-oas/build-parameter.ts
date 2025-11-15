@@ -22,5 +22,10 @@ export function buildParameter(
 		(param.schema as SchemaObject).format = valSan.format;
 	}
 
+	// Propagate example if present
+	if (valSan.example) {
+		param.example = valSan.example;
+	}
+
 	return param;
 }
