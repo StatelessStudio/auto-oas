@@ -2,10 +2,6 @@
 
 Type interfaces for OpenAPI
 
-## Contributing & Development
-
-See [contributing.md](docs/contributing/contributing.md) for information on how to develop or contribute to this project!
-
 ## Import & use the OAS interfaces
 
 You can import the TypeScript interfaces for OpenAPI from this project and use them to type OpenAPI documents or parts of documents.
@@ -49,3 +45,13 @@ Notes:
 
 - The repository's `src/oas/v3.1/index.ts` re-exports all v3.1 interfaces (openapi, schema, path, components, etc.).
 - If you import from the published package, check the package's published entry points (or `package.json` "exports") to determine the correct import path.
+
+## auto-oas library documentation
+
+More detailed documentation for the `auto-oas` helper utilities (small helpers that build OAS Schema and Parameter objects from validator/sanitizer instances) is available in the repository docs:
+
+- `docs/auto-oas.md` — API reference and examples for `buildPropSchema`, `buildObjectSchema`, and `buildParameter`.
+
+## Contributing & Development
+
+See [contributing.md](docs/contributing/contributing.md) for information on how to develop or contribute to this project!
