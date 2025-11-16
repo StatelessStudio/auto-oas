@@ -7,6 +7,10 @@ export function buildPropSchema(valsan: RunsLikeAValSan): SchemaObject {
 	const rules = valsan.rules();
 	const userHints: string[] = [];
 
+	if (valsan.type === 'unknown') {
+		prop.type = undefined;
+	}
+
 	if (valsan.format) {
 		prop.format = valsan.format;
 	}
