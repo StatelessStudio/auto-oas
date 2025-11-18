@@ -47,13 +47,23 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/auto-oas/auto-oas.git"
+		"url": "git+https://github.com/StatelessStudio/auto-oas.git"
 	},
-	"author": "auto-oas",
+	"author": "Stateless Studio",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/auto-oas/auto-oas/issues"
+		"url": "https://github.com/StatelessStudio/auto-oas/issues"
 	},
-	"homepage": "https://github.com/auto-oas/auto-oas#readme",
-	"keywords": []
+	"homepage": "https://github.com/StatelessStudio/auto-oas#readme",
+	"keywords": [
+		"openapi",
+		"oas",
+		"swagger",
+		"validation",
+		"typescript",
+		"valsan",
+		"api",
+		"documentation",
+		"docs"
+	]
 }
