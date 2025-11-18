@@ -5,6 +5,7 @@ import {
 	LengthValidator,
 	IntegerValidator,
 	ComposedValSan,
+	ArrayValSan,
 } from 'valsan';
 import { ObjectSanitizer } from 'valsan/object-sanitizer';
 import { buildObjectSchema } from '../../../src/auto-oas';
@@ -61,5 +62,17 @@ describe('buildObjectSchema', () => {
 		expect(
 			(objSchema!.properties!['comp'] as SchemaObject).description
 		).toContain('y hint');
+	});
+
+	it('builds array schema', () => {
+		const itemValidator = new LengthValidator({ minLength: 1 });
+		const arraySchema = { type: 'array', schema: itemValidator } as unknown;
+		const sanitizer = arraySchema as ArrayValSan;
+
+		const schema = buildObjectSchema(sanitizer);
+
+		expect(schema).toBeDefined();
+		expect(schema!.type).toBe('array');
+		expect(schema!.items).toBeDefined();
 	});
 });
